@@ -1,1 +1,37 @@
-...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome | Super Sprinter 3000</title>
+</head>
+<body>
+<h1>Super Sprinter 3000</h1>
+<p><a href="{{ url_for('route_story') }}">Add new User Story</a></p>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Story title</th>
+        <th>User story</th>
+        <th>Acceptance criteria</th>
+        <th>Business value</th>
+        <th>Estimation</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for user_story in user_stories %}
+        <tr>
+            <td>{{ user_story['id'] }}</td>
+            <td><a href="{{ url_for('route_update', id=user_story['id']) }}">{{ user_story['title'] }}</a></td>
+            <td>{{ user_story['user_story'] }}</td>
+            <td>{{ user_story['acceptance_criteria'] }}</td>
+            <td>{{ user_story['business_value'] }} points</td>
+            <td>{{ user_story['estimation'] }} hour</td>
+            <td>{{ user_story['status'] }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

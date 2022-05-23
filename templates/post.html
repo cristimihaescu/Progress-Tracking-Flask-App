@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Super Sprinter 3000</title>
+</head>
+<body>
+<h1>Super Sprinter 3000</h1>
+<a href="/story"> Add new User Story<br> </a>
+<table>
+    <thead id="thead">
+    <tr>
+        <th>Id</th>
+         <th id ="theadid">Story Title</th>
+        <th>User Story</th>
+        <th>Acceptance Criteria</th>
+        <th>Business Value</th>
+        <th>Estimation</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+    
+            {% for value in result.values() %}
+    
+                    <td> {{ value }} </td>
+            {% endfor %}
+            </tr>
+    </tbody>
+    </table>
+    </body>
+    </html>

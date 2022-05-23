@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Add User Story{% endblock %} | Super Sprinter 3000</title>
+</head>
+<body>
+<h1>{% block header %}Add User Story{% endblock %}</h1>
+<form {% block action %}action="{{ url_for('route_story') }}"{% endblock %} method="post">
+    <p><label for="title">Story title:</label></p>
+    <p><input id="title" type="text" name="title" {% block value_title %}{% endblock %}required minlength="5"></p>
+    <p><label for="story">User story:</label></p>
+    <p><textarea id="story" name="user_story" rows="10" cols="40" required>{% block value_story %}{% endblock %}</textarea></p>
+    <p><label for="criteria">Acceptance criteria:</label></p>
+    <p><textarea id="criteria" name="acceptance_criteria" rows="10" cols="40" required>{% block value_criteria %}{% endblock %}</textarea></p>
+    <p><label for="value">Business value:</label></p>
+    <p><input id="value" type="number" name="business_value" {% block value_value %}{% endblock %} min="100" max="1500" step="100"></p>
+    <p><label for="estimation">Estimation:</label></p>
+    <p><input id="estimation" type="number" name="estimation" {% block value_estimation %}{% endblock %} min="0.5" max="40" step="0.5"></p>
+    <p>{% block status %}{% endblock %}</p>
+    <p><button type="submit">{% block submit %}Add new user story{% endblock %}</button></p>
+</form>
+</body>
+</html>
